@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>preview on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/preview/</link>
+    <description>Recent content in preview on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Dec 2020 15:29:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/preview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL锁表解决办法</title>
+      <link>http://localhost:1313/post/mysql%E9%94%81%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Wed, 30 Dec 2020 15:29:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql%E9%94%81%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>MySQL锁表解决 先查看锁表的进程 SQL: show processlist; 根据查询结果杀掉该进程即可 SQL: kill id</description>
+    </item>
+    
+    <item>
+      <title>Qps统计方法和说明</title>
+      <link>http://localhost:1313/post/qps%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95%E5%92%8C%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Wed, 30 Dec 2020 15:28:15 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/qps%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95%E5%92%8C%E8%AF%B4%E6%98%8E/</guid>
+      <description>术语说明： QPS = req/sec = 请求数/秒 【QPS计算PV和机器的方式】 QPS统计方式 [一般使用 http_load 进行统计] QPS = 总请求数 / ( 进程总数 * 请求时间 ) QPS: 单个进程</description>
+    </item>
+    
+    <item>
+      <title>Alfred 简单操作</title>
+      <link>http://localhost:1313/post/my-first-blog/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/my-first-blog/</guid>
+      <description>打开应用程序：Alfred 几乎是一切程序的入口，你再也不需要找妈妈要开始菜单了。用快捷键呼出Alfred，输入任何一款应用程序的中文或英文名</description>
+    </item>
+    
+    <item>
+      <title>docker方式部署Redis集群</title>
+      <link>http://localhost:1313/post/docker%E9%83%A8%E7%BD%B2redis%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/docker%E9%83%A8%E7%BD%B2redis%E9%9B%86%E7%BE%A4/</guid>
+      <description>在home下新建redis-cluster文件夹,然后创建配制模板文件 redis-cluster.tmpl , cluster-announce-ip 处填入自己的ip port ${PORT} protected-mode no cluster-enabled yes cluster-config-file nodes.conf cluster-node-timeout 5000 cluster-announce-ip localhost cluster-announce-port ${PORT} cluster-announce-bus-port 1${PORT} appendonly yes 使用脚本生成</description>
+    </item>
+    
+    <item>
+      <title>maven 修改版本信息 包括子模块的版本信息</title>
+      <link>http://localhost:1313/post/maven-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-%E5%8C%85%E6%8B%AC%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/maven-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-%E5%8C%85%E6%8B%AC%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/</guid>
+      <description>执行命令: mvn versions:set -DoldVersion=* -DnewVersion=1.0.1-SNAPSHOT -DprocessAllModules=true -DallowSnapshots=true 执行编译打包的命令: mvn clean install -DskipTests 查看依赖树的版本是否修改成功: mvn dependency:tree -Dverboss -Dincludes=${project.groupId}:${project.artifactId} 失败退回命令: mvn versions:revert ,成功提交命令: mvn versions:commit</description>
+    </item>
+    
+    <item>
+      <title>服务发现 Eureka vs Consul vs ZooKeeper</title>
+      <link>http://localhost:1313/post/my-blog-2/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/my-blog-2/</guid>
+      <description>Feature Consul euerka zookeeper 服务健康检查 服务状态，内存，硬盘等 可配支持 (弱)长连接，keepalive 多数据中心 支持 &amp;ndash; &amp;ndash; kv存储服务 支持 &amp;ndash; 支持 一致性 raft &amp;ndash; paxos cap ca</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/redis/</link>
+    <description>Recent content in redis on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Aug 2017 01:37:56 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker方式部署Redis集群</title>
+      <link>http://localhost:1313/post/docker%E9%83%A8%E7%BD%B2redis%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/docker%E9%83%A8%E7%BD%B2redis%E9%9B%86%E7%BE%A4/</guid>
+      <description>在home下新建redis-cluster文件夹,然后创建配制模板文件 redis-cluster.tmpl , cluster-announce-ip 处填入自己的ip port ${PORT} protected-mode no cluster-enabled yes cluster-config-file nodes.conf cluster-node-timeout 5000 cluster-announce-ip localhost cluster-announce-port ${PORT} cluster-announce-bus-port 1${PORT} appendonly yes 使用脚本生成</description>
+    </item>
+    
+  </channel>
+</rss>

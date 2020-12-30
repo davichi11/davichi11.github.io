@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>服务发现 Eureka vs Consul vs ZooKeeper - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Wikipedia" /><meta name="description" content="Feature Consul euerka zookeeper 服务健康检查 服务状态，内存，硬盘等 可配支持 (弱)长连接，keepalive 多数据中心 支持 &amp;ndash; &amp;ndash; kv存储服务 支持 &amp;ndash; 支持 一致性 raft &amp;ndash; paxos cap ca" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/my-blog-2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="服务发现 Eureka vs Consul vs ZooKeeper" />
+<meta property="og:description" content="Feature Consul euerka zookeeper 服务健康检查 服务状态，内存，硬盘等 可配支持 (弱)长连接，keepalive 多数据中心 支持 &ndash; &ndash; kv存储服务 支持 &ndash; 支持 一致性 raft &ndash; paxos cap ca" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/my-blog-2/" />
+<meta property="article:published_time" content="2017-08-30T01:37:56+08:00" />
+<meta property="article:modified_time" content="2017-08-30T01:37:56+08:00" />
+<meta itemprop="name" content="服务发现 Eureka vs Consul vs ZooKeeper">
+<meta itemprop="description" content="Feature Consul euerka zookeeper 服务健康检查 服务状态，内存，硬盘等 可配支持 (弱)长连接，keepalive 多数据中心 支持 &ndash; &ndash; kv存储服务 支持 &ndash; 支持 一致性 raft &ndash; paxos cap ca">
+<meta itemprop="datePublished" content="2017-08-30T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2017-08-30T01:37:56+08:00" />
+<meta itemprop="wordCount" content="2199">
+
+
+
+<meta itemprop="keywords" content="preview,中文,微服务," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="服务发现 Eureka vs Consul vs ZooKeeper"/>
+<meta name="twitter:description" content="Feature Consul euerka zookeeper 服务健康检查 服务状态，内存，硬盘等 可配支持 (弱)长连接，keepalive 多数据中心 支持 &ndash; &ndash; kv存储服务 支持 &ndash; 支持 一致性 raft &ndash; paxos cap ca"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Even</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Even</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">服务发现 Eureka vs Consul vs ZooKeeper</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-08-30 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"> 微服务 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#consul-介绍">Consul 介绍</a></li>
+    <li><a href="#eureka介绍">Eureka介绍</a></li>
+    <li><a href="#zookeeper-介绍">Zookeeper 介绍</a></li>
+    <li><a href="#产品设计中-cap-理论的取舍">产品设计中 CAP 理论的取舍</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <table>
+<thead>
+<tr>
+<th style="text-align:left">Feature</th>
+<th style="text-align:left">Consul</th>
+<th style="text-align:left">euerka</th>
+<th style="text-align:left">zookeeper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">服务健康检查</td>
+<td style="text-align:left">服务状态，内存，硬盘等</td>
+<td style="text-align:left">可配支持</td>
+<td style="text-align:left">(弱)长连接，keepalive</td>
+</tr>
+<tr>
+<td style="text-align:left">多数据中心</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">&ndash;</td>
+<td style="text-align:left">&ndash;</td>
+</tr>
+<tr>
+<td style="text-align:left">kv存储服务</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">&ndash;</td>
+<td style="text-align:left">支持</td>
+</tr>
+<tr>
+<td style="text-align:left">一致性</td>
+<td style="text-align:left">raft</td>
+<td style="text-align:left">&ndash;</td>
+<td style="text-align:left">paxos</td>
+</tr>
+<tr>
+<td style="text-align:left">cap</td>
+<td style="text-align:left">ca(一致性,可用性)</td>
+<td style="text-align:left">ap(可用性,分区容错性)</td>
+<td style="text-align:left">cp(一致性,分区容错性)</td>
+</tr>
+<tr>
+<td style="text-align:left">使用接口(多语言能力)</td>
+<td style="text-align:left">支持http和dns</td>
+<td style="text-align:left">http（sidecar）</td>
+<td style="text-align:left">客户端</td>
+</tr>
+<tr>
+<td style="text-align:left">watch支持</td>
+<td style="text-align:left">全量/支持long polling</td>
+<td style="text-align:left">支持 long polling/大部分增量</td>
+<td style="text-align:left">支持</td>
+</tr>
+<tr>
+<td style="text-align:left">自身监控</td>
+<td style="text-align:left">metrics</td>
+<td style="text-align:left">metrics</td>
+<td style="text-align:left">&ndash;</td>
+</tr>
+<tr>
+<td style="text-align:left">安全</td>
+<td style="text-align:left">acl /https</td>
+<td style="text-align:left">&ndash;</td>
+<td style="text-align:left">acl</td>
+</tr>
+<tr>
+<td style="text-align:left">spring cloud集成</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">支持</td>
+</tr>
+</tbody>
+</table>
+<h1 id="consul-介绍">Consul 介绍</h1>
+<p>Consul 是 HashiCorp 公司推出的开源工具，用于实现分布式系统的服务发现与配置。与其它分布式服务注册与发现的方案，Consul 的方案更“一站式”，内置了服务注册与发现框 架、分布一致性协议实现、健康检查、Key/Value 存储、多数据中心方案，不再需要依赖其它工具（比如 ZooKeeper 等）。使用起来也较 为简单。Consul 使用 Go 语言编写，因此具有天然可移植性(支持Linux、windows和Mac OS X)；安装包仅包含一个可执行文件，方便部署，与 Docker 等轻量级容器可无缝配合。</p>
+<p><strong>Consul 的优势</strong>:</p>
+<ul>
+<li>使用 Raft 算法来保证一致性, 比复杂的 Paxos 算法更直接. 相比较而言, zookeeper 采用的是 Paxos。</li>
+<li>支持多数据中心，内外网的服务采用不同的端口进行监听。 多数据中心集群可以避免单数据中心的单点故障,而其部署则需要考虑网络延迟, 分片等情况等。 zookeeper 和 euerka 均不提供多数据中心功能的支持。</li>
+<li>支持健康检查。</li>
+<li>支持 http 和 dns 协议接口。 zookeeper 的集成较为复杂, euerka  只支持 http 协议。</li>
+<li>官方提供 web 管理界面。</li>
+<li>综合比较, Consul 作为服务注册和配置管理的新星, 比较值得关注和研究。</li>
+</ul>
+<hr>
+<h1 id="eureka介绍">Eureka介绍</h1>
+<p>Eureka是在Java语言上，基于Restful Api开发的服务注册与发现组件，由Netflix开源。遗憾的是，目前Eureka仅开源到1.X版本，2.X版本已经宣布闭源。</p>
+<p>Eureka采用的是Server/Client的模式进行设计。Server扮演了服务注册中心的角色，为Client提供服务注册和发现的功能，维护着注册到自身的Client的相关信息，同时提供接口给Client获取到注册表中其他服务的信息。Client将有关自己的服务的信息通过一定的方式登记到Server上，并在正常范围内维护自己信息的一致性，方便其他服务发现自己，同时可以通过Server获取到自己的依赖的其他服务信息，从而完成服务调用。</p>
+<p>Eureka中没有使用任何的数据强一致性算法保证不同集群间的Server的数据一致，仅通过数据拷贝的方式争取注册中心数据的最终一致性，虽然放弃数据强一致性但是换来了Server的可用性，降低了注册的代价，提高了集群运行的健壮性,这样Eurka用来做服务注册中心是比较靠谱的.</p>
+<hr>
+<h1 id="zookeeper-介绍">Zookeeper 介绍</h1>
+<p>Zookeeper是由Google开源的在Java语言上实现的分布式协调服务，是Hadoop和Hbase的重要组件，提供了数据/发布订阅、负载均衡、分布式同步等功能。</p>
+<p>Zookeeper也是基于主从架构，搭建了一个可高扩展的服务集群.</p>
+<p>Zab协议</p>
+<p>ZooKeeper Atomic Broadcast protocol是专门设计给Zookeeper用于实现分布式系统数据的一致性，是在Paxos算法基础上发展而来。它使用了单一的Leader来接受和处理客户端的所有事务请求，并将服务器数据的状态变更以事务Proposal的形式广播到所有的Server中。同时它保证Leader出现异常时，集群依旧能够正常工作。Zab包含两种基本模式：崩溃恢复和消息广播。</p>
+<ul>
+<li>崩溃恢复：Leader服务器出现宕机，或者因为网络原因导致Leader服务器失去了与过半 Follower的联系，那么就会进入崩溃恢复模式从而选举新的Leader。Leader选举算法不仅仅需要让Leader自己知道其自身已经被选举为Leader，同时还需要让集群中的所有其他服务器也能够快速地感知到选举产生的新的Leader。当选举产生了新的Leader，同时集群中有过半的服务器与该Leader完成了状态同步之后，Zab协议就会退出崩溃恢复模式，进入消息广播模式。</li>
+<li>消息广播：Zab协议的消息广播过程类似二阶段提供过程，是一种原子广播的协议。当接受到来自Client的事务请求(如服务注册)(所有的事务请求都会转发给Leader)，Leader会为事务生成对应的Proposal，并为其分配一个全局唯一的ZXID。Leader服务器与每个Follower之间都有一个单独的队列进行收发消息，Leader将生成的Proposal发送到队列中。Follower从队列中取出Proposal进行事务消费，消费完毕后发送一个ACK给Leader。当Leader接受到半数以上的Follower发送的ACK投票，它将发送Commit给所有Follower通知其对事务进行提交，Leader本身也会提交事务，并返回给处理成功给对应的客户端。Follower只有将队列中Proposal都同步消费后才可用。</li>
+</ul>
+<p>基于Zab协议，Zookeeper可以用于构建具备数据强一致性的服务注册与发现中心，而与此相对地牺牲了服务的可用性和提高了注册需要的时间。</p>
+<hr>
+<h1 id="产品设计中-cap-理论的取舍">产品设计中 CAP 理论的取舍</h1>
+<p>Eureka 典型的 AP,作为分布式场景下的服务发现的产品较为合适，服务发现场景的可用性优先级较高，一致性并不是特别致命。其次 CA 类型的场景 Consul,也能提供较高的可用性，并能 k-v store 服务保证一致性。 而Zookeeper,Etcd则是CP类型 牺牲可用性，在服务发现场景并没太大优势；</p>
+<hr>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Wikipedia</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2017-08-30
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/preview/">preview</a>
+          <a href="/tags/%E4%B8%AD%E6%96%87/">中文</a>
+          <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/maven-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-%E5%8C%85%E6%8B%AC%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">maven 修改版本信息 包括子模块的版本信息</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>胡春亮</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

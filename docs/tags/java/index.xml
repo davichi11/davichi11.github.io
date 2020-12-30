@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/java/</link>
+    <description>Recent content in java on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Aug 2017 01:37:56 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>maven 修改版本信息 包括子模块的版本信息</title>
+      <link>http://localhost:1313/post/maven-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-%E5%8C%85%E6%8B%AC%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/maven-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF-%E5%8C%85%E6%8B%AC%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/</guid>
+      <description>执行命令: mvn versions:set -DoldVersion=* -DnewVersion=1.0.1-SNAPSHOT -DprocessAllModules=true -DallowSnapshots=true 执行编译打包的命令: mvn clean install -DskipTests 查看依赖树的版本是否修改成功: mvn dependency:tree -Dverboss -Dincludes=${project.groupId}:${project.artifactId} 失败退回命令: mvn versions:revert ,成功提交命令: mvn versions:commit</description>
+    </item>
+    
+  </channel>
+</rss>

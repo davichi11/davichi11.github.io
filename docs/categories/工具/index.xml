@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Dec 2020 15:32:31 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ITerm2 快捷键大全</title>
+      <link>http://localhost:1313/post/iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</link>
+      <pubDate>Wed, 30 Dec 2020 15:32:31 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%A4%A7%E5%85%A8/</guid>
+      <description>标签 新建标签：command + t 关闭标签：command + w 切换标签：command + 数字 command + 左右方向键 切换全屏：command + enter 查找：c</description>
+    </item>
+    
+    <item>
+      <title>Alfred 简单操作</title>
+      <link>http://localhost:1313/post/my-first-blog/</link>
+      <pubDate>Wed, 30 Aug 2017 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/my-first-blog/</guid>
+      <description>打开应用程序：Alfred 几乎是一切程序的入口，你再也不需要找妈妈要开始菜单了。用快捷键呼出Alfred，输入任何一款应用程序的中文或英文名</description>
+    </item>
+    
+  </channel>
+</rss>

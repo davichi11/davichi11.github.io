@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/mysql/</link>
+    <description>Recent content in MySQL on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Dec 2020 15:29:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL锁表解决办法</title>
+      <link>http://localhost:1313/post/mysql%E9%94%81%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</link>
+      <pubDate>Wed, 30 Dec 2020 15:29:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql%E9%94%81%E8%A1%A8%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</guid>
+      <description>MySQL锁表解决 先查看锁表的进程 SQL: show processlist; 根据查询结果杀掉该进程即可 SQL: kill id</description>
+    </item>
+    
+  </channel>
+</rss>
